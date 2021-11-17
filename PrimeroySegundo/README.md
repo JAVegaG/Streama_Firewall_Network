@@ -1,4 +1,4 @@
-# _**servidor firewall**_ y _**servidor de Streaming**_ usando _Streama_**
+# _**servidor firewall**_ y _**servidor de Streaming**_ usando _Streama_
 
 Los pasos desarrollados durante esta sección se muestran a continuación:
 
@@ -28,4 +28,5 @@ Posteriormente, se instala en el servidor el paquete rpm descargado. Ahora, se d
 Se crea un nuevo directorio _/opt/streama_, se renombre el jar _streama.war_ y se mueve a al directorio creado, ahí se crea también un subdirectorio _media_ y se le otorgan permisos _chmod 644_ para almanecar los recursos del streaming. Ahora se debe agregar el archivo de descripción de streama _streama.service_ en _/etc/systemd/system/_. Finalmente, se activa y habilita el servicio:
 
 >systemctl start streama
+
 >systemctl enable streama
