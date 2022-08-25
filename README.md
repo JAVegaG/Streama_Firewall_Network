@@ -1,7 +1,7 @@
-# **Parcial Final**
+# **Firewall + Streama + Shell + IVR**
 
-Desarrollo del parcial final de la asignatura _Telecomunicaciones 3_, el cual consiste en 3 partes:
+This project consists of 3 parts:
 
-- Implementaciar una arquitectura de red compuesta por un _**servidor firewall**_ y un _**servidor de Streaming**_ usando _Streama_.
-- Implementar archivos de **aprovisionamiento** usando _Shell_ que permitan desarrollar de forma automática lo realizado en el punto anterior.
-- Implementar un **IVR** (Interactive Voice Response) en _FreePBX_ y analizar el comportamiento de los protocolos en diferentes escenarios usando _Wireshark_. 
+- Implement a network architecture composed of a _**firewall server**_ and a _**Streaming server**_ using _Streama_.
+- Implement **provision** files using _Shell_ that allow the automatic development of what was done in the previous point.
+- Implement an **IVR** (Interactive Voice Response) in _FreePBX_ and analyze the behavior of the protocols in different scenarios using _Wireshark_.
