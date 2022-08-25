@@ -1,32 +1,32 @@
-# _**servidor firewall**_ y _**servidor de Streaming**_ usando _Streama_
+# _**firewall server**_ and _**Streaming server**_ using _Streama_
 
-Los pasos desarrollados durante esta sección se muestran a continuación:
+The steps developed during this section are shown below:
 
-- Diseñar la arquitectura de red.
-- Configurar el servidor de backend con los recursos de media para el servicio de streaming.
-- Configurar las interfaces del firewall para proteger los datos y que unicamente se pueda acceder a los recursos en el backend a través de este servidor.
-- Realizar pruebas de funcionamiento.
-- Diseñar los archivos de aprovisionamiento basados en las configuraciones que fueron necesarias para el correcto funcionamiento de los pasos anteriores.
-- Comprobar el funcionamiento de los archivos de aprovisionamiento.
+- Design the network architecture.
+- Configure the backend server with the media resources for the streaming service.
+- Configure firewall interfaces to protect data so that resources on the backend can only be accessed through this server.
+- Perform performance tests.
+- Design the provisioning files based on the configurations that were necessary for the correct operation of the previous steps.
+- Check the operation of the provisioning files.
 
-Ahora bien, los 3 primeros ítems se desarrollan más a fondo:
+Now, the first 3 articles are further developed:
 
-## _**Diseñar la arquitectura de la red**_
+## _**Design the network architecture**_
 
-Teniendo en cuenta que la consulta de recursos al servidor de backend se debe realizar a través de un servidor de firewall, se requiere que el backend se encuentre en una red privada y el firewall tenga una interfaz pública donde se debe resolver la consulta y una privada dentro de la red del servidor de backend que acceda a los recursos.
+Taking into account that the query for resources to the backend server must be done through a firewall server, it is required that the backend is in a private network and the firewall has a public interface where the query must be resolved and a private one. within the network of the backend server accessing the resources.
 
-## _**Configurar el servidor de Streaming**_
+## _**Configure the streaming server**_
 
-Para esto inicialmente se actualiza el servidor, después se descarga la última versión de Oracle Java usando wget de la siguiente manera:
+For this, the server was initially updated, then the latest version of Oracle Java was downloaded using wget as follows:
 
->wget --no-cookies --no-check-certificate --header "Cookie:oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm"
+>wget --no-cookies --no-check-certificate --header "Cookie:oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u131-b11 /d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm"
 
-Posteriormente, se instala en el servidor el paquete rpm descargado. Ahora, se debe descargar el paquete jar de Streama desde [Streama](https://github.com/streamaserver/streama/releases), para esto se usa wget con el link correspondiente a la última versión disponible:
+Afterwards, the downloaded rpm package is installed on the server. Now, the Streama jar package must be downloaded from [Streama](https://github.com/streamaserver/streama/releases), for this wget is used with the link corresponding to the latest available version:
 
 >wget https://github.com/streamaserver/streama/releases/download/v1.10.3/streama-1.10.3.jar
 
-Se crea un nuevo directorio _/opt/streama_, se renombre el jar _streama.war_ y se mueve a al directorio creado, ahí se crea también un subdirectorio _media_ y se le otorgan permisos _chmod 644_ para almanecar los recursos del streaming. Ahora se debe agregar el archivo de descripción de streama _streama.service_ en _/etc/systemd/system/_. Finalmente, se activa y habilita el servicio:
+A new directory _/opt/streama_ is created, the jar _streama.war_ is renamed and moved to the created directory, a subdirectory _media_ is also created there and _chmod 644_ permissions are granted to it to store the streaming resources. The streama description file _streama.service_ should now be added to _/etc/systemd/system/_. Finally, the service is activated and enabled:
 
 >systemctl start streama
 
->systemctl enable streama
+> systemctl enable streama
